@@ -8,7 +8,8 @@
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:     sb-coming-up
  *
- * @package         oik-sb
+ * @package         sb-coming-up
+ * @copyright       (C) Copyright Bobbing Wide 2021
  */
 
 /**
@@ -62,12 +63,13 @@ function oik_sb_sb_coming_up_block_init() {
 			'attributes' => [
 				'postType' => ['type' => 'string'],
 				'showDate' => [ 'type' => 'boolean'],
+				'showTitle' => ['type' => 'boolean'],
 				'className' => [ 'type' => 'string'],
 			]
 		)
 	);
 }
-add_action( 'init', 'oik_sb_sb_coming_up_block_init' );
+
 
 function sb_coming_up_block_dynamic_block( $attributes ) {
  	require_once __DIR__ . '/libs/class-sb-coming-up-block.php';
@@ -77,4 +79,27 @@ function sb_coming_up_block_dynamic_block( $attributes ) {
 
 }
 
+function sb_coming_up_loaded() {
+	add_action( 'pre_get_posts', 'sb_coming_up_pre_get_posts' );
+	add_action( 'init', 'oik_sb_sb_coming_up_block_init' );
+}
 
+/**
+ * Implement "pre_get_posts" action
+ *
+ * Here we allow the main query to access the future posts as well as published.
+ *
+ * @TODO Check when this is not a good idea.
+ *
+ * Maybe it should only be done when the post_status is 'publish'
+ * and the query is a get request.
+ *
+ * @param object $query Instance of WP_Query
+ */
+function sb_coming_up_pre_get_posts( $query ) {
+	if ( $query->is_main_query() ) {
+		$query->set( 'post_status', ['publish', 'future']);
+	}
+}
+
+sb_coming_up_loaded();
