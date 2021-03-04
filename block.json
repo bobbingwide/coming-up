@@ -1,0 +1,15 @@
+{
+	"apiVersion": 2,
+	"name": "oik-sb/sb-coming-up",
+	"title": "Coming up",
+	"category": "widgets",
+	"icon": "calendar-alt",
+	"description": "Display future events",
+	"textdomain": "sb-coming-up",
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}
