@@ -70,57 +70,11 @@ function oik_sb_sb_coming_up_block_init() {
 add_action( 'init', 'oik_sb_sb_coming_up_block_init' );
 
 function sb_coming_up_block_dynamic_block( $attributes ) {
- /*
-	require_once __DIR__ . '/libs/class-sb-coming-up-block.php';
+ 	require_once __DIR__ . '/libs/class-sb-coming-up-block.php';
 	$sb_coming_up_block = new SB_Coming_Up_Block();
 	$html = $sb_coming_up_block->render( $attributes );
-*/
-	$className = isset( $attributes['className']) ? $attributes['className'] : 'wp-block-oik-sb-coming-up';
-	//$content = isset( $attributes['content'] ) ? $attributes['content'] : null;
-	$html = '<div class="'. $className . '">';
-	//$html .= sb_chart_block_shortcode( $attributes, $content, 'chartjs' );
-
-	//require_once
-
-	$posts = sb_coming_up_fetch_posts( $attributes );
-	$html .= sb_coming_up_display_posts( $attributes, $posts );
-	$html .= '</div>';
-
 	return $html;
 
 }
 
-function sb_coming_up_fetch_posts( $attributes ) {
-	$args = [ 'post_type' => 'post',
-	          'post_status' => 'future',
-	          'orderby' => 'date',
-	          'order' => 'asc'];
 
-	$posts = get_posts( $args );
-	return $posts;
-
-}
-
-function sb_coming_up_display_posts( $attributes, $posts ) {
-	$html='';
-	$html.='<ul>';
-	//echo count( $posts );
-	foreach ( $posts as $post ) {
-		//print_r( $post );
-		$html .= sb_coming_up_display_post( $attributes, $post );
-	}
-	$html.='</ul>';
-	return $html;
-}
-
-function sb_coming_up_display_post( $attributes, $post ) {
-	$html ='<li>';
-	$html.=$post->post_title;
-	$html.='</li>';
-	return $html;
-}
-
-/**
-
-[bw_pages post_type='post' post_status='future' format="d L" fields=title,post_status,post_date orderby=date order=asc]
-*/
