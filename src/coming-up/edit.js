@@ -16,7 +16,7 @@ import { useBlockProps } from '@wordpress/block-editor';
 import { ServerSideRender } from '@wordpress/editor';
 import { Fragment} from '@wordpress/element';
 import { InspectorControls } from '@wordpress/block-editor';
-import { TextControl, PanelBody } from '@wordpress/components';
+import { TextControl, PanelBody, PanelRow, ToggleControl } from '@wordpress/components';
 
 
 /**
@@ -43,14 +43,41 @@ export default function edit ( { attributes, className, isSelected, setAttribute
 		setAttributes({postType: event});
 	};
 
+	const onChangeShowDate = ( event ) => {
+		setAttributes( { showDate: !attributes.showDate});
+	}
+	const onChangeShowTitle = ( event ) => {
+		setAttributes( { showTitle: !attributes.showTitle});
+	}
+	const onChangeShowTitleAsLink = ( event ) => {
+		setAttributes( { showTitleAsLink: !attributes.showTitleAsLink});
+	}
+
 	const help = __("Choose the post type to display. Default 'post'", 'sb-sb-coming-up');
 
 	return (
 		<Fragment>
 			<InspectorControls>
 				<PanelBody>
+					<ToggleControl
+						label={ __( 'Show date', 'sb-coming-up' ) }
+						checked={ !! attributes.showDate }
+						onChange={ onChangeShowDate }
+					/>
+					<ToggleControl
+						label={ __( 'Show title', 'sb-coming-up' ) }
+						checked={ !! attributes.showTitle }
+						onChange={ onChangeShowTitle }
+					/>
+					<ToggleControl
+						label={ __( 'Show title as link', 'sb-coming-up' ) }
+						checked={ !! attributes.showTitleAsLink }
+						onChange={ onChangeShowTitleAsLink }
+					/>
+					<PanelRow>
 					<TextControl label={__("Post Type", 'sb-coming-up')} value={attributes.postType}
 								 onChange={onChangePostType} help={help}/>
+					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
 			<ServerSideRender

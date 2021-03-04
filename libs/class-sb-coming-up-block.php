@@ -26,9 +26,9 @@ class SB_Coming_Up_Block {
 		$this->className = isset( $attributes['className']) ? $attributes['className'] : 'wp-block-oik-sb-coming-up';
 		$postType = isset( $attributes['postType']) ? $attributes['postType'] : 'post';
 		$this->postType = explode( ',', $postType );
-		$this->showDate = true;
-		$this->showTitle = true;
-		$this->showTitleAsLink = true;
+		$this->showDate = isset( $attributes['showDate']) ? $attributes['showDate'] : true;
+		$this->showTitle = isset( $attributes['showTitle']) ? $attributes['showTitle'] : true;
+		$this->showTitleAsLink = isset( $attributes['showTitleAsLink']) ? $attributes['showTitleAsLink'] : true;
 		$this->showExcerpt = false;
 		$this->showContent = false;
 		$this->showMore = false;
@@ -82,7 +82,7 @@ class SB_Coming_Up_Block {
 
 	function render_post_date( $post ) {
 		$date = $post->post_date;
-		$html .= '<div>';
+		$html = '<div>';
 
 		if ( $date ) {
 			$format = get_option( 'date_format' );
@@ -97,7 +97,7 @@ class SB_Coming_Up_Block {
 		$title = get_the_title( $post->ID );
 		if ( $this->showTitleAsLink ) {
 			$attributes = [];
-			$attributes['linkTarget'] = '';
+			$attributes['linkTarget'] = '_self';
 			$attributes['rel'] = '';
 			$title = sprintf( '<a href="%1s" target="%2s" rel="%3s">%4s</a>', get_the_permalink( $post->ID ), $attributes['linkTarget'], $attributes['rel'], $title );
 		}

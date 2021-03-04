@@ -64,6 +64,7 @@ function oik_sb_sb_coming_up_block_init() {
 				'postType' => ['type' => 'string'],
 				'showDate' => [ 'type' => 'boolean'],
 				'showTitle' => ['type' => 'boolean'],
+				'showTitleAsLink' => ['type' => 'boolean'],
 				'className' => [ 'type' => 'string'],
 			]
 		)

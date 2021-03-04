@@ -74,6 +74,9 @@ registerBlockType( 'oik-sb/sb-coming-up', {
 
 	attributes: {
 		postType: { type: 'string', default: 'post', },
+		showDate: { type: 'boolean', default: true, },
+		showTitle: { type: 'boolean', default: true, },
+		showTitleAsLink: { type: 'boolean', default: true, },
 	},
 
 	/**
