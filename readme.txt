@@ -2,9 +2,9 @@
 Contributors:      @bobbingwide
 Tags:              block
 Requires at least: 5.6.0
-Tested up to:      5.6.0
+Tested up to:      5.7-beta3
 Stable tag:        0.0.0
-Requires PHP:      7.0.0
+Requires PHP:      7.3.0
 License:           GPL 3.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,16 +12,11 @@ Display future events
 
 == Description ==
 
-This is the long description. No limit, and you can use Markdown (as well as in the following sections).
+Use the Coming up plugin to enable your website to display content that's scheduled in the future.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+Use the Coming up block to display these future posts.
 
 == Installation ==
-
-This section describes how to install the plugin and get it working.
-
-e.g.
 
 1. Upload the plugin files to the `/wp-content/plugins/sb-coming-up` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
@@ -29,29 +24,44 @@ e.g.
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= Will all 'future' posts be visible? =
 
-An answer to that question.
+Yes, unless they are otherwise protected.
 
-= What about foo bar? =
+= Why not use an events plugin? =
 
-Answer to foo bar dilemma.
+- Do you just need to ability to display content with dates in the future?
+- Do you really need a fully featured events plugin? 
+
+= What other plugins are there? = 
+
+To my knowledge this is the only one that supports the block editor.
+
+There are a few plugins on wordpress.org that support future posts.
+
+- The Future is Now!
+- Future
+- Display Future Posts 
+- Show Future Posts on Single Post
+
+None of these have been updated in the last 6 years!
+
+
 
 == Screenshots ==
+1. Coming up block and settings
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+== Upgrade Notice ==
+= 0.0.0 = 
+This is a prototype single block plugin. Expect significant improvements.
+
 
 == Changelog ==
 
 = 0.0.0 =
-* Release
+* Added: Server side rendered Coming up block,[github bobbingwide sb-coming-block issues 1]
+* Tested: With Gutenberg 10.1.0
+* Tested: With WordPress 5.6.2 and WordPress Multi Site
+* Tested: With WordPress 5.7-beta3 and WordPress Multi Site
+* Tested: With PHP 8.0
 
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above. This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation." Arbitrary sections will be shown below the built-in sections outlined above.
