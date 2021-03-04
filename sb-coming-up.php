@@ -60,6 +60,7 @@ function oik_sb_sb_coming_up_block_init() {
 			'style'         => 'oik-sb-sb-coming-up-block',
 			'render_callback' => 'sb_coming_up_block_dynamic_block',
 			'attributes' => [
+				'postType' => ['type' => 'string'],
 				'showDate' => [ 'type' => 'boolean'],
 				'className' => [ 'type' => 'string'],
 			]
@@ -73,16 +74,17 @@ function sb_coming_up_block_dynamic_block( $attributes ) {
 	require_once __DIR__ . '/libs/class-sb-coming-up-block.php';
 	$sb_coming_up_block = new SB_Coming_Up_Block();
 	$html = $sb_coming_up_block->render( $attributes );
-
-	$className = isset( $attributes['className']) ? $attributes['className'] : 'wp-block-oik-sb-chart';
-	$content = isset( $attributes['content'] ) ? $attributes['content'] : null;
+*/
+	$className = isset( $attributes['className']) ? $attributes['className'] : 'wp-block-oik-sb-coming-up';
+	//$content = isset( $attributes['content'] ) ? $attributes['content'] : null;
 	$html = '<div class="'. $className . '">';
-	$html .= sb_chart_block_shortcode( $attributes, $content, 'chartjs' );
-	$html .= '</div>';
-	require_once
- */
+	//$html .= sb_chart_block_shortcode( $attributes, $content, 'chartjs' );
+
+	//require_once
+
 	$posts = sb_coming_up_fetch_posts( $attributes );
-	$html = sb_coming_up_display_posts( $attributes, $posts );
+	$html .= sb_coming_up_display_posts( $attributes, $posts );
+	$html .= '</div>';
 
 	return $html;
 
