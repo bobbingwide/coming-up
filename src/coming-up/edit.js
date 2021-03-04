@@ -13,6 +13,12 @@ import { __ } from '@wordpress/i18n';
  */
 import { useBlockProps } from '@wordpress/block-editor';
 
+import { ServerSideRender } from '@wordpress/editor';
+import { Fragment} from '@wordpress/element';
+import { InspectorControls } from '@wordpress/block-editor';
+import { TextControl, PanelBody } from '@wordpress/components';
+
+
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -29,10 +35,27 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+
+
+export default function edit ( { attributes, className, isSelected, setAttributes } ) {
+
+	const onChangePostType = (event) => {
+		setAttributes({postType: event});
+	};
+
+	const help = __("Choose the post type to display. Default 'post'", 'sb-sb-coming-up');
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Coming up – hello from the editor!', 'sb-coming-up' ) }
-		</p>
+		<Fragment>
+			<InspectorControls>
+				<PanelBody>
+					<TextControl label={__("Post Type", 'sb-coming-up')} value={attributes.postType}
+								 onChange={onChangePostType} help={help}/>
+				</PanelBody>
+			</InspectorControls>
+			<ServerSideRender
+				block="oik-sb/sb-coming-up" attributes={attributes}
+			/>
+		</Fragment>
 	);
 }

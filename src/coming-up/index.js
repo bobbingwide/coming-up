@@ -36,7 +36,7 @@ registerBlockType( 'oik-sb/sb-coming-up', {
 	/**
 	 * @see https://make.wordpress.org/core/2020/11/18/block-api-version-2/
 	 */
-	apiVersion: 2,
+	//apiVersion: 2,
 
 	/**
 	 * This is the display title for your block, which can be translated with `i18n` functions.
@@ -68,6 +68,12 @@ registerBlockType( 'oik-sb/sb-coming-up', {
 	supports: {
 		// Removes support for an HTML mode.
 		html: false,
+		align: false,
+		alignWide: false,
+	},
+
+	attributes: {
+		postType: { type: 'string', default: 'post', },
 	},
 
 	/**
