@@ -65,6 +65,7 @@ function oik_sb_sb_coming_up_block_init() {
 				'showDate' => [ 'type' => 'boolean'],
 				'showTitle' => ['type' => 'boolean'],
 				'showTitleAsLink' => ['type' => 'boolean'],
+				'showExcerpt' => ['type' => 'boolean'],
 				'className' => [ 'type' => 'string'],
 			]
 		)

@@ -77,6 +77,7 @@ registerBlockType( 'oik-sb/sb-coming-up', {
 		showDate: { type: 'boolean', default: true, },
 		showTitle: { type: 'boolean', default: true, },
 		showTitleAsLink: { type: 'boolean', default: true, },
+		showExcerpt: { type: 'boolean', default: false, },
 	},
 
 	/**

@@ -52,6 +52,9 @@ export default function edit ( { attributes, className, isSelected, setAttribute
 	const onChangeShowTitleAsLink = ( event ) => {
 		setAttributes( { showTitleAsLink: !attributes.showTitleAsLink});
 	}
+	const onChangeShowExcerpt = ( event ) => {
+		setAttributes( { showExcerpt: !attributes.showExcerpt });
+	}
 
 	const help = __("Choose the post type to display. Default 'post'", 'sb-sb-coming-up');
 
@@ -73,6 +76,11 @@ export default function edit ( { attributes, className, isSelected, setAttribute
 						label={ __( 'Show title as link', 'sb-coming-up' ) }
 						checked={ !! attributes.showTitleAsLink }
 						onChange={ onChangeShowTitleAsLink }
+					/>
+					<ToggleControl
+						label={ __( 'Show Excerpt', 'sb-coming-up' ) }
+						checked={ !! attributes.showExcerpt }
+						onChange={ onChangeShowExcerpt }
 					/>
 					<PanelRow>
 					<TextControl label={__("Post Type", 'sb-coming-up')} value={attributes.postType}
