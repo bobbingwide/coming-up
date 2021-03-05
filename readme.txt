@@ -2,8 +2,8 @@
 Contributors:      @bobbingwide
 Tags:              block
 Requires at least: 5.6.0
-Tested up to:      5.7-beta3
-Stable tag:        0.0.0
+Tested up to:      5.7-RC2
+Stable tag:        0.0.1
 Requires PHP:      7.3.0
 License:           GPL 3.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -52,11 +52,17 @@ None of these have been updated in the last 6 years!
 1. Coming up block and settings
 
 == Upgrade Notice ==
+= 0.0.1 = 
+Update for post excerpt support. 
+
 = 0.0.0 = 
 This is a prototype single block plugin. Expect significant improvements.
 
 
 == Changelog ==
+= 0.0.1 =
+* Added: Add support for displaying the post excerpt
+* Changed: Format using divs
 
 = 0.0.0 =
 * Added: Server side rendered Coming up block,[github bobbingwide sb-coming-block issues 1]
